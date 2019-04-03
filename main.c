@@ -3,11 +3,13 @@
 #include <time.h>
 #include "screen.h"
 #include "sound.h"
+#include <signal.h>
 int main(){
 	FILE *f;
 	short sd[RATE];
 	for(;;){
-		system(RCMD);
+		int ret = system(RCMD);
+		if( ret == SIGINT) break;
 		f = fopen("test.wav","r");
 		if(f == NULL){
 			printf("can't open the file\n");
@@ -27,6 +29,6 @@ int main(){
 		displayWAVDATA(sd);
     }
 	resetColors();
-    getchar();
+//  getchar();
 }
 
