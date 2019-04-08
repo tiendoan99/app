@@ -3,9 +3,15 @@
 
 void barChart(int db[]){
     int i, j;
-    for(i=COL; i>0; i--){
-	    for(j=45; j>db[i]/3; j--){
-	        printf("\033[%d;%dH", j-1, i-1);
+    for(i=0; i<COL; i++){
+	    for(j=0; j<db[i]/3; j++){
+			if(j>20 && db[i]>60){
+				setColors(GREEN, bg(YELLOW));
+			}
+			else{
+				setColors(RED, bg(YELLOW));
+			}
+			printf("\033[%d;%dH", 35-j, i+1);
 #ifdef UNICODE
 	            printf("%s",BAR);
 #else 

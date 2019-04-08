@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+//#include <time.h>
 #include "screen.h"
 #include "sound.h"
 #include <signal.h>
@@ -19,7 +19,7 @@ int main(){
 //  srand(time(NULL));
 //  for(i=0; COL>i; i++) dec[i] = rand()%70+30;
     	clearScreen();
-    	setColors(RED,bg(YELLOW));
+//    	setColors(RED,bg(YELLOW));
 //  barChart(dec);
 		struct WAVHDR hdr;
 		fread(&hdr, sizeof(hdr), 1, f);		// read WAV header
