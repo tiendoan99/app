@@ -1,9 +1,11 @@
+// this file contains screen functions. They are used to display
+// sound levels on a PUTTY screen as a bar chart
 #include <stdio.h>
 #include "screen.h"
 
 void barChart(int db[]){
     int i, j;
-    for(i=0; i<COL; i++){
+    for(i=0; i<COL; i++){	// for 80 columms
 	    for(j=0; j<db[i]/3; j++){
 			if(j>20 && db[i]>60){
 				setColors(GREEN, bg(YELLOW));
@@ -12,7 +14,7 @@ void barChart(int db[]){
 				setColors(RED, bg(YELLOW));
 			}
 			printf("\033[%d;%dH", 35-j, i+1);
-#ifdef UNICODE
+#ifdef UNICODE				// conditional compilation 
 	            printf("%s",BAR);
 #else 
 	            printf("%c", '*');
@@ -22,7 +24,7 @@ void barChart(int db[]){
 }
 void clearScreen(void){
     printf("\033[2J");
-    fflush(stdout);
+    fflush(stdout);			// for remote terminal (such as PUTTY)
 }
 
 void setColors(short bg,short fg){
