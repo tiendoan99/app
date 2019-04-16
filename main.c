@@ -16,7 +16,7 @@ int main(int argc, char **argv){
 			printf("Mono frequency: ");
 			scanf("%d", &fL); 
 		}
-		else(ch == 2){
+		else if(ch == 2){
 			printf("Give me LEFT and RIGHT freq: ");
 			scanf("%d %d", &fL, &fR);
 		}
@@ -25,7 +25,7 @@ int main(int argc, char **argv){
 			return 1;
 		}
 		printf("Duration of sound: ");
-		scanf("&f", &duration);
+		scanf("%f", &duration);
 		testTone(ch, fL, fR, duration);
 		return 0;
 	}
