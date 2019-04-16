@@ -1,1 +1,26 @@
-# This is app development ver 1.0
+# This is app development ver 1.1 ------ by TIEN DOAN
+
+This application offers a possibility to turn a Raspberry Pi as a sound 
+device. the application come with 2 functions: a sound collector and a 
+test tone generator.
+
+List of content:
+	1. Configuration Instructions
+	  Requirement:
+		1) Raspberry Pi
+		2) Microphone
+		3) USB power cable
+		4) SD card
+		5) Headphone
+		6) Sound card
+	2. Installation Instructions
+		1) Upload all the files from this link to your Raspberry Pi: https://github.com/tiendoan99/app
+		2) Connect your Raspberry Pi to the internet, sound card, microphone, headphone and to the power
+		3) Set up your sound card using these following commands: sudo nano /etc/asound.conf
+		
+		
+	3. Operating Instructions
+	4. List of Files
+	5. Copyright / Copyleft
+	6. Contact Info.
+	7. Credits and Acknowledgements
