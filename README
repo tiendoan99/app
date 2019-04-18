@@ -14,13 +14,66 @@ List of content:
 		5) Headphone
 		6) Sound card
 	2. Installation Instructions
-		1) Upload all the files from this link to your Raspberry Pi: https://github.com/tiendoan99/app
+		1) Upload all the files from the source by this command: "git clone  https://github.com/tiendoan99/app"
 		2) Connect your Raspberry Pi to the internet, sound card, microphone, headphone and to the power
-		3) Set up your sound card using these following commands: sudo nano /etc/asound.conf
-		
-		
+		*******SET UP YOUR SOUND CARD*******
+		3) Log into your Raspberry Pi and set up your sound card using this following command "sudo nano /etc/asound.conf"	
+		4) Type in these codes:
+pcm.!default {
+  type plug
+  slave {
+    pcm "hw:1,0"
+  }
+}
+ctl.!default {
+    type hw
+    card 1
+}
+		5) Go back to your home directory, use this command "nano .asoundrc" and then type in the same code above
+		6) Run “alsamixer” command to check if your device is registered
+		7) If the device isn't registered, use “sudo nano /etc/apt/sources.list” command and add the last line:
+deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi
+# Uncomment line below then 'apt-get update' to enable 'apt-get source'
+#deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi
+deb http://mirrordirector.raspbian.org/raspbian/ wheezy main contrib non-free rpi
+		8) Run “sudo apt-get update”
+		9) Run “sudo aptitude versions alsa-utils” to check if version 1.0.25 of alsa-util is available
+		10) Run “sudo apt-get install alsa-utils=1.0.25-4” to downgrade and then reboot
+		11) Run “arecord -r44100 -c1 -f S16_LE -d5 test.wav” to test that your microphone is working. You should see a “test.wav” file in the current folder.
+		12) Put earphone on the USB sound card. Run “aplay test.wav” to check that your recording is okay.
+		*******SET UP LIBCURL*********
+		13) First use command "ls /usr/include/curl" or "ls /usr/include/arm-linux-gnueabihf/curl" to identify that libcurl library is installed.
+		14) If the folder doesn’t exist. Run “sudo apt-get update” to update the application list.
+		15) Run “sudo apt-get install libcurl3” to install the libcurl3.
+		16) Run “sudo apt-get install libcurl4-openssl-dev” to install the development API of libcurl4.
 	3. Operating Instructions
+		1) Use command "make clean" to clear all running program
+		2) Use command "make" to update the program
+		3) Use command "./sound.out" to run the record and sound analize  program
+		4) Use command "./sound.out arg" to run the sound maker program
+		5) Use command "scp testTone.wav *your email address*:." to copy the sound file you just made from the program
 	4. List of Files
+		comm.c
+		comm.h
+		main.c
+		makefile
+		screen.c
+		screen.h
+		sound.c
+		sound.h
+		sound.php
+		testcurl.c
+		README
 	5. Copyright / Copyleft
+		This program is made by Doan Minh Tien
+		All distribution right belong to Doan Minh Tien, user right is for everyone 
 	6. Contact Info.
+		Name: Doan Minh Tien
+		Email: minhtien230299@gmail.com
 	7. Credits and Acknowledgements
+		University of Apply Science VAMK
+		Gao Chao
+		Doan Minh Tien
+		Raspberry Pi
+		Kingston
+		GitHub
